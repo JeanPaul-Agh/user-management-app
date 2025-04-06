@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import darkModeIcon from './assets/icons8-moon-symbol-50.png';
 
 function App() {
 
-  const [users] = useState([
+  const users = [
     { id: '1', firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com', status: 'active', dob: '1990-05-15' },
     { id: '2', firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com', status: 'locked', dob: '1998-10-22' },
     { id: '3', firstName: 'Alice', lastName: 'Johnson', email: 'ama.johnson@example.com', status: 'active', dob: '1995-02-30' },
@@ -16,8 +15,7 @@ function App() {
     { id: '10', firstName: 'Hannah', lastName: 'Pearl', email: 'hannah.pearl@example.com', status: 'active', dob: '1986-12-02' },
     { id: '11', firstName: 'Ed', lastName: 'Calece', email: 'ed.calece@example.com', status: 'locked', dob: '1985-07-19' },
     { id: '12', firstName: 'Eddie', lastName: 'Morgan', email: 'eddie.calece@example.com', status: 'locked', dob: '1999-09-21' },
-  ]);
-
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
