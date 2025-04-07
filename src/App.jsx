@@ -21,19 +21,21 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       {/* Navigation Bar */}
-      <nav className="p-4 shadow-md bg-primary">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-white">User Management</h1>
+      <nav className="p-3 sm:p-4 shadow-md bg-primary">
+        <div className="container mx-auto flex items-center justify-between">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white whitespace-nowrap">
+            User Management
+          </h1>
           
-          <div className="flex gap-3">
-            <button className="px-4 py-2 rounded-md bg-white text-primary font-medium hover:bg-gray-100 transition">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <button className="px-2 py-1 text-xs sm:px-3 sm:py-1 sm:text-sm md:px-4 md:py-2 md:text-base rounded-md bg-white text-primary font-medium hover:bg-gray-100 transition whitespace-nowrap">
               Create User
             </button>
-            <button className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
+            <button className="px-2 py-1 text-xs sm:px-3 sm:py-1 sm:text-sm md:px-4 md:py-2 md:text-base bg-red-500 text-white rounded-md hover:bg-red-600 transition whitespace-nowrap">
               Logout
             </button>
-            <button>
-              <img src={darkModeIcon} alt="Dark Mode Toggle" className="w-6 h-6" />
+            <button className="p-1">
+              <img src={darkModeIcon} alt="Dark Mode Toggle" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             </button>
           </div>
         </div>
