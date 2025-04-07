@@ -17,6 +17,7 @@ function App() {
     { id: '12', firstName: 'Eddie', lastName: 'Morgan', email: 'eddie.calece@example.com', status: 'locked', dob: '1999-09-21' },
   ];
 
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       {/* Navigation Bar */}
@@ -81,9 +82,7 @@ function App() {
                     <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-700 transition">
                       Edit
                     </button>
-                    <button 
-                      className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
-                    >
+                    <button className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
                       Delete
                     </button>
                   </div>
