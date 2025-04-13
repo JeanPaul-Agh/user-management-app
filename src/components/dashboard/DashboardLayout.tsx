@@ -1,7 +1,9 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuthStore, useThemeStore } from '../../store';
 import themeIcon from '../../assets/icons8-moon-symbol-50.png'; 
+
 export function DashboardLayout({ children }: { children?: React.ReactNode }) {
+  // Theme and auth management
   const { isDark, toggleTheme } = useThemeStore();
   const { clearToken } = useAuthStore();
   const navigate = useNavigate();

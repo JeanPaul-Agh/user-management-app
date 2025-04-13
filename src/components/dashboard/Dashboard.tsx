@@ -4,48 +4,36 @@ import { UserCard } from './UserCard';
 import { User } from '../../types/user'; 
 
 export function Dashboard() {
-  const [users, setUsers] = useState<User[]>([]); 
+  
+  const [users, setUsers] = useState<User[]>([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  
+  // Store hooks for auth and theme
   const { accessToken } = useAuthStore();
   const { isDark } = useThemeStore();
 
+  // Fetch users data when search or token changes
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        setError('');
         const response = await fetch(`/api/users?search=${encodeURIComponent(search)}`, {
-          headers: new Headers({
-            'Authorization': `Bearer ${accessToken}`,
-            'Content-Type': 'application/json'
-          })
+          headers: { 'Authorization': `Bearer ${accessToken}` }
         });
         
         const data = await response.json();
-        console.log('Full API Response:', data);
-        
-        if (!response.ok) {
-          throw new Error(data.message || `HTTP error! Status: ${response.status}`);
-        }
-        
-        const receivedUsers = data.result?.data?.users || [];
-        console.log('Processed Users:', receivedUsers);
-        
-        setUsers(receivedUsers);
-        
+        if (!response.ok) throw new Error(data.message);
+        setUsers(data.result?.data?.users || []);
       } catch (err) {
-        console.error('Fetch error:', err);
         setError(err instanceof Error ? err.message : 'Failed to load users');
       } finally {
         setLoading(false);
       }
     };
     
-    if (accessToken) {
-      fetchUsers();
-    }
+    if (accessToken) fetchUsers();
   }, [search, accessToken]);
 
   return (

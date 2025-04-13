@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
+// Auth store interface and implementation
 interface AuthState {
   accessToken: string | null;
   expiresIn: number | null;
@@ -8,11 +9,13 @@ interface AuthState {
   clearToken: () => void;
 }
 
+// Theme store interface and implementation
 interface ThemeState {
   isDark: boolean;
   toggleTheme: () => void;
 }
 
+// Auth store using localStorage
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
@@ -28,6 +31,7 @@ export const useAuthStore = create<AuthState>()(
   )
 );
 
+// Theme store using localStorage
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({

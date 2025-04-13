@@ -6,12 +6,13 @@ export function ProtectedRoute() {
   const { accessToken, expiresIn, clearToken } = useAuthStore();
   const location = useLocation();
 
-  // Check token validity
+  // Token expiration check
   const currentTimestamp = Math.floor(Date.now() / 1000);
   const isTokenExpired = expiresIn ? expiresIn < currentTimestamp : true;
 
+  // Redirect to login if no valid token
   if (!accessToken || isTokenExpired) {
-    if (accessToken) clearToken(); // Clear expired/invalid token
+    if (accessToken) clearToken(); 
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
   

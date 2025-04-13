@@ -3,14 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../store';
 
 export function Login() {
+  
   const [email, setEmail] = useState('academy@gmail.com');
   const [password, setPassword] = useState('academy123');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  
+  // Auth and navigation hooks
   const { setToken } = useAuthStore();
   const navigate = useNavigate();
 
+  // Handles form submission and authentication
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
@@ -29,7 +33,7 @@ export function Login() {
       const data = await response.json();
       if (response.ok) {
         setToken(data.result.data.accessToken, data.result.data.expiresIn);
-        navigate('/dashboard');
+        navigate('/dashboard'); // Redirect on success
       } else {
         setError(data.message || 'Login failed');
       }
