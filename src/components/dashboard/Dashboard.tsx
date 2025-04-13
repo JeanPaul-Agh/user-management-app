@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useAuthStore, useThemeStore } from '../../store';
 import { UserCard } from './UserCard';
-import { User } from '../../types/user'; // Import the User interface
+import { User } from '../../types/user'; 
 
 export function Dashboard() {
-  const [users, setUsers] = useState<User[]>([]); // Now using the imported User type
+  const [users, setUsers] = useState<User[]>([]); 
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
