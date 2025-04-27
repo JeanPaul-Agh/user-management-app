@@ -3,6 +3,6 @@ export interface User {
   firstName: string;
   lastName?: string;
   email: string;
-  status: 'ACTIVE' | 'LOCKED';
+  status: 'active' | 'locked';
   dateOfBirth: string;
 }
