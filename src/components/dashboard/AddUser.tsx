@@ -65,10 +65,7 @@ export function AddUser() {
       }
       return response.json() as Promise<ApiResponse>;
     },
-    // On successful mutation:
-    // 1. Invalidate users query to refresh data
-    // 2. Show success toast
-    // 3. Navigate back to dashboard
+    
     onSuccess: (data: ApiResponse) => {
       queryClient.invalidateQueries({ queryKey: ['users'] });
       toast.success(data.result.message, { autoClose: 3000 });
