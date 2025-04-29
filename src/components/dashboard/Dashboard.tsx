@@ -14,9 +14,6 @@ export function Dashboard() {
 
 
   // Fetch users data with React Query
-  // Automatically refetches when search term changes
-  // Only enabled when accessToken is available
-  // Data is considered fresh for 5 minutes (staleTime)
   const { data, isLoading, error } = useQuery({
     queryKey: ['users', search], 
     queryFn: async () => {
